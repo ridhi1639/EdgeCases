@@ -1,0 +1,106 @@
+/* Edge Cases — Leaderboard Styles */
+.leaderboard-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.leaderboard-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border-main);
+}
+
+.leaderboard-time-tabs {
+  display: flex;
+  align-items: center;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-main);
+  border-radius: var(--radius-md);
+  padding: 3px;
+  gap: 2px;
+}
+
+.time-tab-btn {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  background: none;
+  border: none;
+  padding: 6px 14px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.time-tab-btn:hover {
+  color: var(--text-primary);
+}
+
+.time-tab-btn.active {
+  background-color: var(--bg-surface-elevated);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.leaderboard-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-main);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.leaderboard-row.is-current-user {
+  background-color: var(--accent-subtle) !important;
+  border-left: 3px solid var(--accent);
+}
+
+.leaderboard-row.is-current-user td {
+  color: var(--text-primary);
+}
+
+.rank-badge-top1 {
+  color: #FBBF24;
+  font-weight: 700;
+}
+
+.rank-badge-top2 {
+  color: #D1D5DB;
+  font-weight: 700;
+}
+
+.rank-badge-top3 {
+  color: #F97316;
+  font-weight: 700;
+}
+
+.player-cell {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.player-avatar-cell {
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-sm);
+  background-color: var(--bg-surface-elevated);
+  border: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.player-tier-tag {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-muted);
+}

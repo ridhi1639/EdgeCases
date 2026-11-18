@@ -1,0 +1,168 @@
+/* Edge Cases — Battle Results Styles */
+.results-container {
+  max-width: 760px;
+  margin: 40px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.results-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-main);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.6);
+}
+
+/* Outcome Banner */
+.results-banner {
+  padding: 32px 24px;
+  text-align: center;
+  background-color: var(--bg-surface-subtle);
+  border-bottom: 1px solid var(--border-main);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.outcome-title {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+.outcome-title.victory {
+  color: var(--status-success);
+}
+
+.outcome-title.defeat {
+  color: var(--status-error);
+}
+
+.outcome-title.draw {
+  color: var(--status-warning);
+}
+
+.outcome-sub {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+/* Players Head-to-Head Comparison */
+.results-players-grid {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  padding: 28px 24px;
+  gap: 20px;
+}
+
+.result-player-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+}
+
+.result-avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-md);
+  background-color: var(--bg-surface-elevated);
+  border: 1px solid var(--border-hover);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.result-username {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.result-rating-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+}
+
+.result-current-rating {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.result-rating-delta {
+  font-size: 13px;
+  font-weight: 600;
+  padding: 1px 6px;
+  border-radius: var(--radius-xs);
+}
+
+.result-rating-delta.positive {
+  color: var(--status-success);
+  background-color: var(--status-success-subtle);
+}
+
+.result-rating-delta.negative {
+  color: var(--status-error);
+  background-color: var(--status-error-subtle);
+}
+
+.result-vs-divider {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+/* Match Summary Statistics Table */
+.results-stats-list {
+  padding: 20px 24px;
+  border-top: 1px solid var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.stat-row-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 13px;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.stat-row-item:last-child {
+  border-bottom: none;
+}
+
+.stat-row-label {
+  color: var(--text-muted);
+}
+
+.stat-row-val {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* Results Actions */
+.results-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 8px;
+}
