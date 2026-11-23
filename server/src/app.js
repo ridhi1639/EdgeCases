@@ -6,6 +6,7 @@ import { config } from './config.js';
 import { query } from './db.js';
 import { notFound, errorHandler } from './errors.js';
 import authRoutes from './routes/auth.js';
+import problemsRoutes from './routes/problems.js';
 export function createApp() {
     const app = express();
 
@@ -23,6 +24,7 @@ export function createApp() {
         }
     });
     app.use('/api/auth', authRoutes);
+    app.use('/api/problems', problemsRoutes);
     app.use(notFound);
     app.use(errorHandler);
 
