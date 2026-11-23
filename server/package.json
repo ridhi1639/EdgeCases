@@ -6,11 +6,11 @@
   "scripts": {
     "dev": "node --watch --env-file=.env src/index.js",
     "start": "node src/index.js",
-    "migrate": "node --env-file=.env db/migrate.js",
-    "seed:demo": "node --env-file=.env db/seed-demo.js",
-    "test:auth": "node --env-file=.env tests/auth.test.js"
+    "migrate": "node --env-file=.env db/migrate.js"
   },
-  "engines": { "node": ">=20.6" },
+  "engines": {
+    "node": ">=20.6"
+  },
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "cookie-parser": "^1.4.7",
