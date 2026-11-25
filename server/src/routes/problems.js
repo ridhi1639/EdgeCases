@@ -38,6 +38,7 @@ router.get('/', async (req, res, next) => {
         title,
         difficulty,
         topic,
+        acceptance_rate AS "acceptanceRate",
         description,
         input_format AS "inputFormat",
         output_format AS "outputFormat",
@@ -78,6 +79,7 @@ router.get('/:idOrSlug', async (req, res, next) => {
         title,
         difficulty,
         topic,
+        acceptance_rate AS "acceptanceRate",
         description,
         input_format AS "inputFormat",
         output_format AS "outputFormat",
@@ -145,3 +147,6 @@ router.get('/:idOrSlug', async (req, res, next) => {
 });
 
 export default router;
+
+
+

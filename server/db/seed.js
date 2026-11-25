@@ -63,10 +63,10 @@ try {
         `INSERT INTO problems (
           id, slug, title, difficulty, topic, description,
           input_format, output_format, examples, constraints,
-          hints, is_premium, time_limit_ms, memory_limit_mb
+          hints, is_premium, time_limit_ms, memory_limit_mb, acceptance_rate
         ) VALUES (
           $1, $2, $3, $4, $5, $6, $7, $8, $9, $10,
-          $11, FALSE, $12, $13
+          $11, FALSE, $12, $13, $14
         )
         ON CONFLICT (id) DO UPDATE SET
           slug = EXCLUDED.slug,
@@ -80,7 +80,8 @@ try {
           constraints = EXCLUDED.constraints,
           hints = EXCLUDED.hints,
           time_limit_ms = EXCLUDED.time_limit_ms,
-          memory_limit_mb = EXCLUDED.memory_limit_mb`,
+          memory_limit_mb = EXCLUDED.memory_limit_mb,
+          acceptance_rate = EXCLUDED.acceptance_rate`,
         [
           problem.id,
           problem.slug,
@@ -95,6 +96,7 @@ try {
           JSON.stringify(problem.hints),
           parseInt(problem.timeLimit, 10),
           parseInt(problem.memoryLimit, 10),
+          problem.acceptanceRate,
         ]
       );
 
@@ -149,3 +151,5 @@ try {
 } finally {
   await pool.end();
 }
+
+
