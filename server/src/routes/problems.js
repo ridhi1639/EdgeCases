@@ -66,7 +66,7 @@ router.get('/', async (req, res, next) => {
 });
 
 // GET /api/problems/:idOrSlug
-// Fetch one problem with starter code and test cases
+// Fetch one problem with starter code and public test cases
 router.get('/:idOrSlug', async (req, res, next) => {
   try {
     const { idOrSlug } = req.params;
@@ -106,9 +106,8 @@ router.get('/:idOrSlug', async (req, res, next) => {
       [problem.id]
     );
 
-        const testResult = await query(
+    const testResult = await query(
       `SELECT
-      
         id,
         display_input AS input,
         expected AS "expectedOutput",
@@ -120,17 +119,19 @@ router.get('/:idOrSlug', async (req, res, next) => {
        ORDER BY sort_order ASC`,
       [problem.id]
     );
+
     const starterCode = {};
     for (const item of starterResult.rows) {
       starterCode[item.language] = item.code;
     }
+
     const testCases = testResult.rows.map((test) => ({
-  ...test,
-  expectedOutput:
-    typeof test.expectedOutput === 'string'
-      ? test.expectedOutput
-      : JSON.stringify(test.expectedOutput),
-}));
+      ...test,
+      expectedOutput:
+        typeof test.expectedOutput === 'string'
+          ? test.expectedOutput
+          : JSON.stringify(test.expectedOutput),
+    }));
 
     res.json({
       ...problem,
