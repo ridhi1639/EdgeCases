@@ -36,6 +36,7 @@ const MOCK_AUTH_STORAGE_KEY = 'edgecases_auth_user_v1';
 
 // Helper to check if mock fallback should be used
 const USE_MOCK = import.meta.env.VITE_USE_MOCK !== 'false';
+const USE_MOCK_PROBLEMS = import.meta.env.VITE_USE_MOCK_PROBLEMS !== 'false';
 
 /* --- Authentication API Services --- */
 export const authApi = {
@@ -111,7 +112,7 @@ export const authApi = {
 /* --- Problems Service --- */
 export const problemsApi = {
   async getProblems({ difficulty, topic, search } = {}) {
-    if (!USE_MOCK) {
+    if (!USE_MOCK_PROBLEMS) {
       const res = await apiClient.get('/problems', { params: { difficulty, topic, search } });
       return res.data;
     }
@@ -130,7 +131,7 @@ export const problemsApi = {
   },
 
   async getProblemById(idOrSlug) {
-    if (!USE_MOCK) {
+    if (!USE_MOCK_PROBLEMS)  {
       const res = await apiClient.get(`/problems/${idOrSlug}`);
       return res.data;
     }

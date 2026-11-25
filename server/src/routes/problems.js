@@ -106,8 +106,9 @@ router.get('/:idOrSlug', async (req, res, next) => {
       [problem.id]
     );
 
-    const testResult = await query(
+        const testResult = await query(
       `SELECT
+      
         id,
         display_input AS input,
         expected AS "expectedOutput",
@@ -115,10 +116,10 @@ router.get('/:idOrSlug', async (req, res, next) => {
         explanation
        FROM test_cases
        WHERE problem_id = $1
+         AND is_hidden = FALSE
        ORDER BY sort_order ASC`,
       [problem.id]
     );
-
     const starterCode = {};
     for (const item of starterResult.rows) {
       starterCode[item.language] = item.code;
